@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'home.css'%}">
+
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="shortcut icon" href="{% static 'img/logo1.ico'%}" type="image/x-icon">
+    <title>Sheger Sport Arena/ሸገር ስፖርት አሬና </title>
+</head>
+<body>
+    <footer>
+        <div class="foot">
+            <div class="foot-icons">
+                <a href="https://t.me/shegersportofficial"><i class="fa-brands fa-telegram"></i></a>
+                <a href="https://www.instagram.com/sheger_sport_arena?igsh=MWs4emJ4cHdsaXo0OA%3D%3D&utm_source=qr"><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://twitter.com/dr_magzine?s=21&t=31fAtFUH5_9bApNeg7fKUg"><i class="fa-brands fa-twitter"></i></a>
+                <a href="https://www.facebook.com/Shegersportarena?mibextid=LQQJ4d"><i class="fa-brands fa-facebook"></i></a>
+            </div>
+        </div>
+    </footer>
+    <div class="sec1">
+        <header class="header">
+            <a href="/home"><h2 class="logo"> <strong>S</strong>heger <strong>M</strong>agazine</h2></a>
+            <input type="checkbox" id="check">
+            <label for="check" class="icons">
+                <i class="bx bx-menu" id="open"></i>
+                <i class="bx bx-x" id="close"></i>
+            </label>
+            <nav class="navbar">
+                <a href="#trending">Trending</a>
+                <a href="#latest">Latest</a>
+                <a href="#hot">International</a>
+            </nav>
+
+        </header>
+
+        <hr class="horizon">
+        <div class="bodyy1" id="hot">  
+            <div class="bod1">
+                <div class="hero">
+                    <a href="pages/{{main.2}}">
+                        <img src={{main.1}}>
+                        <p>{{main.0}}</p>
+                    </a>
+                </div>
+        </div>
+
+
+        <div class="col1">
+            <h2>International Topics</h2>
+                {% for key, value in Hot.items %}
+                    {% if forloop.counter <= 3 %}
+                        <div class="cola">
+                            <a href="/pages/{{ key }}"><img src="{{ value.1 }}"></a>
+                            <a href="/pages/{{ key }}"><h3><b>{{ value.0 }}</b></h3></a>
+                        </div>
+                    {% endif %}
+                {% endfor %}
+        </div>       
+        
+    </div>    
+    </div>
+  
+    <div class="split3">
+        <h1 id="trending">Trending</h1>
+    </div>
+    
+    <!-- here add the copy of this div and make only 3 print -->
+    <div class="container3">
+        {% for key,value in Trending.items %}
+            {% if forloop.counter <= 4 %}
+                <div class="colon">
+                    <a href="/pages/{{key}}"><img src = {{value.1}}></a>
+                    <p>{{value.0}}</p>
+                    <p class="readmore"><a href="/pages/{{key}}">Continue Reading &raquo;</a></p>
+                </div>
+            {% endif %}
+        {% endfor %}
+    </div>
+
+    </div>
+
+
+    <div class="sectio-latest">
+        <div class="split">
+            <h1 id="latest">Latest News</h1>
+        </div>
+        <div class="latest">
+            <div class="feed">
+                <div class="feed-list">
+                    <ul>
+                        {% for key,value in Latest.items %}
+                            <li class="list-card">
+                                <div class="list-content">
+                                    <h6>Sport</h6>
+                                    <h3 class="content"><a href="/pages/{{key}}">{{value.0}}</a></h3>
+                                    <!-- <p class="content-discription">Urnau ltrices quis curabitur pha sellent esque congue magnisve stib ulum</p> -->
+                                </div>
+                                <div class="list-img">
+                                    <div class="itimg">
+                                        <a href="/pages/{{key}}"><img src={{value.1}}></a>
+                                    </div>
+                                </div>
+                            </li>
+                        {% endfor %}  
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</body>
+</html>
